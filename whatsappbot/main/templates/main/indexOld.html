@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>WhatsApp</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <form id="newNote" class="newnote_content" method="POST" action="">
+            <label for="IdInstance" class="form-field__label">IdInstance</label>
+            <input id="IdInstance" type="text" class="form-field__input" name="IdInstance">
+            <label for="ApiToken" class="form-field__label">ApiToken</label>
+            <input id="ApiToken" type="text" class="form-field__input" name="ApiToken"><br>
+            <input id="Token" type="submit" value="Начать работать" /><br>
+        </form>
+        <div id="workArea" class="work_area">
+            <div class="messages">
+                <div class="form-field__messages">Сообщения</div>
+                <div id="test" class="form-field__textarea">
+                </div>
+            </div>
+        </div>
+        <div id="message_area" class="message_area">
+            <input id="SendMessage" type="text" class="form-field__input" name="SendMessage" placeholder="Введите сообщение"><br>
+            <button id="webQuery" class="json_button" value="return">Сделать запрос</button>
+            <button id="receiveMessage" class="json_button" value="return">Получить сообщение</button>
+        </div>
+    </div>
+    <script src="{% static 'main/js/main.js' %}"></script>
+    <script src="{% static 'main/js/index.js' %}" type="text/babel"></script>
+</body>
+</html>
