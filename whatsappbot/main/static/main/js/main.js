@@ -26,8 +26,9 @@ class WebQuery {
     }
 
     sendMessages() {
+        let phoneId = document.getElementById("phoneNumber").value + "@c.us";
         let bodyMessage = {
-            "chatId": "79154536822@c.us",
+            "chatId": phoneId,
             "message": document.getElementById("SendMessage").value
         };
         let method = `sendMessage/${this.apiTokenInstance}`;
@@ -44,6 +45,7 @@ class WebQuery {
             .then(data => {
                 let dataString = data;
                 console.log(dataString);
+                document.getElementById("SendMessage").value = "";
             });
     }
 

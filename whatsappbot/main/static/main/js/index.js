@@ -29,6 +29,8 @@ function Data() {
                 })
                 
             }
+            <div ref={bottomRef}></div>
+            
         </div>
       );
 }
@@ -39,5 +41,6 @@ const app = document.getElementById("test");
 // const root = createRoot(domNode);
 const root = ReactDOM.createRoot(app);
 root.render(<Data />);
-app.scrollToBottom();
+const app1 = document.getElementById("test");
+
 

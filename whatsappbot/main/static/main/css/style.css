@@ -39,7 +39,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     justify-content: left;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     font-size: 14px;
 }
 .new_message {
@@ -50,7 +50,7 @@ body {
     flex-direction: column;
     justify-content: left;
     width: 100%;
-    height: 400px;
+    height: 350px;
 }
 .message_wrap {
     display: flex;
@@ -58,6 +58,7 @@ body {
     align-items: flex-start;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
 }
 .message_in {
     background: #eaeaea;

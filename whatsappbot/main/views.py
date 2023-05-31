@@ -7,29 +7,21 @@ from .forms import MessageForm
 
 @csrf_exempt
 def index(request):
+    if request.method == "GET":
+        messages = Message.objects.all()
+        messages.delete()
+
+
     if request.method == "POST":
         listLen = request.body
         json_data = json.loads(listLen)
         if json_data['typeWebhook'] == 'incomingMessageReceived':
             makeRecord("incoming", json_data['messageData']['textMessageData']['textMessage'])
-            # type = "incoming"
             s4 = json_data['messageData']['textMessageData']['textMessage']
-            # data = {
-            #     "type": type,
-            #     "text": s4
-            # }
-            # form = MessageForm(data)
-            # form.save()
             with open('answer.txt', 'w') as f:
                 f.write(s4)
         if json_data['typeWebhook'] == 'outgoingAPIMessageReceived':
             makeRecord("outgoing", json_data['messageData']['extendedTextMessageData']['text'])
-            # type = "outgoing"
-            # print(json_data['messageData']['extendedTextMessageData']['text'])
-            # data = {
-            #     "type": type,
-            #     "text": s4
-            # }
         print(json_data)
 
     return render(request, 'main/indexOld.html')
